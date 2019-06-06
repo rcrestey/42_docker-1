@@ -1,0 +1,2 @@
+#run debian container with docker run -it --rm debian:latest
+apt-get -y update && apt-get -y upgrade && apt-get -y install build-essential git

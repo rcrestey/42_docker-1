@@ -1,0 +1,6 @@
+docker run -it --name Abathur -d --restart on-failure -p 3000:3000 -v /Users/rcrestey/Desktop/docker-1/Abathur:/root -e FLASK_APP=/root/hello_world.py python:2-slim /bin/bash
+echo "from flask import Flask\napp = Flask(__name__)\n@app.route('/')\ndef index():\n\treturn \"<h1>Hello World</h1>\"\nif __name__ == \"__main__\":\n\tapp.run(host='0.0.0.0', port=3000)" > /Users/rcrestey/Desktop/docker-1/Abathur/hello_world.py 
+docker exec Abathur bash -c 'pip install flask; flask run --host=0.0.0.0 --port=3000'
+
+#Check
+curl $(docker-machine ip Char):3000
